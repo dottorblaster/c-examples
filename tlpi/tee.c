@@ -60,7 +60,7 @@ int main(int argc, char *argv[]) {
       return 1;
     }
 
-    for (i = optind; i < count; i++) {
+    for (i = optind; i < argc; i++) {
       FILE *pFile = fopen(argv[i], file_mode);
       if (pFile == NULL) {
         fprintf(stderr, "Unable to open %s for mode %s\n", argv[i], file_mode);
