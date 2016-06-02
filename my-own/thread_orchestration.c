@@ -27,7 +27,7 @@ void lock(pthread_mutex_t *mtx) {if (pthread_mutex_lock(mtx)) error_exit("Error 
 
 void unlock(pthread_mutex_t *mtx) {if (pthread_mutex_unlock(mtx)) error_exit("Error happened\n");}
 
-void awake(pthread_cond_t *cnd) {if (pthread_cond_t(cnd)) error_exit("Error happened\n");}
+void awake(pthread_cond_t *cnd) {if (pthread_cond_signal(cnd)) error_exit("Error happened\n");}
 
 void wait(pthread_cond_t *cnd, pthread_mutex_t *mtx) {if (pthread_cond_wait(cnd, mtx)) error_exit("Error happened\n");}
 
