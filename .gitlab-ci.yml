@@ -1,0 +1,4 @@
+image: gcc:6
+
+build_job:
+  script: "make"
