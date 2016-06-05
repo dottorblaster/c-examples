@@ -81,7 +81,7 @@ void invert_bytes(char *rec, int len) {
   }
 }
 
-void send_records() {
+void send_records(int ifd, int ofd) {
   for (;;) {
     char *buf;
     int n = read_int(ifd);
