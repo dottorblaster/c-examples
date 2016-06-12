@@ -65,6 +65,7 @@ void print_input(int pfd[2]) {
     int n = read_int(pfd[1]);
     buf = read_stuff(pfd[1], n);
     if (fwrite(buf, n, 1, stdout) != 1u) {
+			printf("Error in print_input\n");
       exit(EXIT_FAILURE);
     }
     free(buf);
@@ -73,26 +74,35 @@ void print_input(int pfd[2]) {
 
 void spawn_child(int pfd[2]) {
   pid_t p = fork();
-
   if (p == -1) {
+			printf("Error in spawn_child\n");
     exit(EXIT_FAILURE);
   }
   if (p != 0) {
     return;
   }
-
   print_input(pfd);
 }
 
-void send_input(int pfd) {}
+void send_input(int pfd) {
+	int number;
+	for (;;) {
+		printf("Enter a number\n");
+		scanf("%d", &number);
+		int rc = write(pfd, number, sizeof(number));
+		if (rc == -1) {
+			printf("Error in send_input\n");
+			exit(EXIT_FAILURE);
+		}
+	}
+}
 
 int main() {
   int pfd[2];
 
   create_pipe(pfd);
   spawn_child(pfd);
-  close_fd(pfd[1]);
+
   send_input(pfd[0]);
-  close_fd(pfd[0]);
   return EXIT_SUCCESS;
 }
