@@ -1,4 +1,9 @@
 image: gcc:6
 
-build_job:
-  script: "make"
+before_script:
+  - gcc -v      # Print out GCC version
+
+make:
+  script:
+  - make
+
