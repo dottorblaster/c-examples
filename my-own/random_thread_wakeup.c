@@ -5,7 +5,7 @@
 #include <pthread.h>
 
 pthread_barrier_t barrier;
-int count = 0;
+int count = 0
 pthread_mutex_t mutex;
 
 void initialize(void) {
