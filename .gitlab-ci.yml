@@ -3,11 +3,8 @@ image: gcc:6
 before_script:
   - gcc -v      # Print out GCC version
 
-make:
+compile:
   script:
   - make
-
-clean:
-  script:
   - make clean
 
