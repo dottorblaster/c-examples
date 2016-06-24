@@ -7,3 +7,7 @@ make:
   script:
   - make
 
+clean:
+  script:
+  - make clean
+
