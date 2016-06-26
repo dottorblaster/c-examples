@@ -1,10 +1,14 @@
 image: gcc:6
 
+stages:
+  - build
+
 before_script:
   - gcc -v      # Print out GCC version
 
 compile:
+  stage: build
+  environment: testing
   script:
   - make
   - make clean
-
