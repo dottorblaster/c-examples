@@ -1,4 +1,4 @@
-image: frolvlad/alpine-gcc
+image: jamespedwards42/alpine-gcc-make
 
 stages:
   - build
