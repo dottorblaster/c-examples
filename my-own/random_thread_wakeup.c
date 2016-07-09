@@ -4,8 +4,8 @@
 #include <time.h>
 #include <pthread.h>
 
-pthread_barrier_t barrier;
 int count = 0;
+pthread_barrier_t barrier;
 pthread_mutex_t mutex;
 
 void initialize(void) {
