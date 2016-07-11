@@ -7,5 +7,9 @@ void main() {
   pid_t p = fork();
   printf("Post-fork()\n");
   printf("Altro post-fork()\n");
-  printf("%s\n", p);
+  if (p == 0) {
+    printf("0 found :-)\n");
+  } else {
+    printf("Else :-(\n");
+  }
 }
