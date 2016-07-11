@@ -3,7 +3,8 @@
 
 void main() {
   printf("Pre-fork()\n");
-  fork();
+  pid_t p = fork();
   printf("Post-fork()\n");
   printf("Altro post-fork()\n");
+  printf("%s\n", p);
 }
