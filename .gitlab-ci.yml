@@ -11,5 +11,4 @@ compile:
   environment: testing
   script:
   - make
-  - ./target/my-own/thread_try
   - make clean
