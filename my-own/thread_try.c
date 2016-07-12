@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <pthread.h>
+
+void *slave_fn1(void *v) {
+  for (size_t l = 0; l < 5; l++) {
+    printf("From the thread with love\n");
+  }
+  pthread_exit(NULL);
+}
+
+int main() {
+  pthread_t tid1;
+  pthread_t tid2;
+  void *tret;
+  printf("Creating thread\n");
+  pthread_create(tid1, NULL, slave_fn1, NULL);
+  printf("Thread created 1\n");
+  printf("Thread created 2\n");
+  for (size_t i = 0; i < 5; i++) {
+    printf("Main!\n");
+  }
+  pthread_join(tid1, &tret);
+  printf("thread 1 exit code %ld\n", (long)tret);
+  return 0;
+}
