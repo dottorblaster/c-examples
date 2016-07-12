@@ -22,7 +22,5 @@ int main() {
   for (i = 0; i < 5; i++) {
     printf("Main!\n");
   }
-  pthread_join(tid1, &tret);
-  printf("thread 1 exit code %ld\n", (long)tret);
   return 0;
 }
