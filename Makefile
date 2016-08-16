@@ -16,7 +16,7 @@ mine: $(MY_PROGS)
 tlpi: $(TLPI_PROGS)
 
 %: %.c
-	$(CC) -pthread -w -o $(TDIR)/$@ $<
+	$(CC) -pthread -O2 -Wall -Wextra -w -o $(TDIR)/$@ $<
 
 clean:
 	rm -rf target/
